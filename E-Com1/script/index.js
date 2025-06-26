@@ -265,150 +265,40 @@ let data = [
       count: 145,
     },
   },
-
-  {
-    id: 21,
-    title: "Wireless Mouse",
-    price: 799,
-    category: "Electronics",
-    image:
-      "https://th.bing.com/th/id/OIP.NVVgl-nkGucZpnILXDBGWAHaHa?rs=1&pid=ImgDetMain",
-    rating: {
-      rate: 4.6,
-      count: 122,
-    },
-  },
-
-  {
-    id: 22,
-    name: "Neckless",
-    price: 1299,
-    category: "jewelery",
-    image:
-      "https://th.bing.com/th/id/OIP.h0_ZZkkC4shOx2UwOw3aCwAAAA?rs=1&pid=ImgDetMain",
-    rating: {
-      rate: 4.0,
-      count: 154,
-    },
-  },
-
-  {
-    id: 23,
-    name: "Bluetooth Headphones",
-    price: 1299,
-    category: "Electronics",
-    image:
-      "https://th.bing.com/th/id/OIP.8SvXQ3nKY6QdDBKSw59nxAHaHa?w=920&h=920&rs=1&pid=ImgDetMain",
-    rating: 4.5,
-  },
-  {
-    id: 24,
-    name: "Keybord",
-    price: 599,
-    category: "Electronics",
-    image:
-      "https://th.bing.com/th/id/OIP.Gg34fL9N6opgdbCuJXP0xgHaDg?rs=1&pid=ImgDetMain",
-    rating: {
-      rate: 4.3,
-      count: 67,
-    },
-  },
-  {
-    id: 25,
-    name: "Men's Running Shoes",
-    price: 1499,
-    category: "Footwear",
-    image:
-      "https://www.tennisnuts.com/images/product/main/NIKE-FREE-50-GS-725114_600_E_PREM.jpg",
-    rating: {
-      rate: 4.3,
-      count: 235,
-    },
-  },
 ];
 
-let cart_arr = JSON.parse(localStorage.getItem("cartData")) || [];
 let main = document.getElementById("main");
-let cred = document.getElementById("cred");
-let log = document.getElementById("log");
-
-let loginuser = JSON.parse(localStorage.getItem("loginuser"));
-// console.log(loginuser)
-
-// let a= 5;
-
-if (loginuser != null) {
-  log.style.display = "none";
-  let name = document.createElement("h4");
-  let cartbtn = document.createElement("button");
-  cartbtn.addEventListener("click", function () {
-    window.location.href = "../html/cart.html";
-  });
-  cartbtn.innerText = "Cart";
-  let logout = document.createElement("button");
-  logout.addEventListener("click", outfun);
-  logout.innerText = "logout";
-  name.innerText = loginuser;
-  cred.append(name, cartbtn, logout);
-} else {
-  console.log("not availble");
-}
-
-function outfun() {
-  // console.log("logout")
-  localStorage.removeItem("loginuser");
-  window.location.reload();
-}
-
-if(!loginuser == ""){  // false == false
-  console.log("hello")
-}else{
-console.log("not")
-}
-
-console.log(cred)
 display();
 
 function display() {
   data.map(function (el) {
-    // console.log(el.category)
+    // console.log(el.category);
     let title = document.createElement("h2");
     title.innerText = el.title;
     let price = document.createElement("h3");
     price.innerText = el.price;
     let image = document.createElement("img");
     image.src = el.image;
-    let description = document.createElement("p");
-    description.innerText = el.description;
     let addcartbtn = document.createElement("button");
-    addcartbtn.addEventListener("click", function () {
-      addcartfun(el);
-    });
     addcartbtn.innerText = "Add to Cart";
+
+    addcartbtn.addEventListener("click", function () {
+      addToCart(el);
+    });
 
     let div = document.createElement("div");
     div.append(image, title, price, addcartbtn);
     main.append(div);
   });
 }
+let loginuser = JSON.parse(localStorage.getItem("loginuser"));
+let span = document.getElementById("user");
+let cred = document.getElementById("cred");
 
-function addcartfun(cartvalue) {
-  // console.log("cart added")
-  // console.log(cartvalue)
-  let flag = false;
-  cart_arr.map(function (el) {
-    if(el == cartvalue){
-     flag = true
-    }
-  });
+if (loginuser) {
+  cred.style.display = "none";
+  let username = document.createElement("h2");
+  username.innerText = loginuser;
 
-
-  if(flag == true){
-    alert("product is already added")
-  }else{
-    cart_arr.push(cartvalue);
-    alert("product is added to cart");
-    localStorage.setItem("cartData", JSON.stringify(cart_arr));
-  }
+  span.append(username);
 }
-

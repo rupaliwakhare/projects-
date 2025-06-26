@@ -20,11 +20,13 @@ function display(data) {
     let description = document.createElement("p");
     description.innerText = el.description;
     let buynow = document.createElement("button");
-
     buynow.innerText = "Buynow";
-
+    
+    
     let div = document.createElement("div");
     div.append(image, title, price, buynow);
     container.append(div);
   });
 }
+
+
