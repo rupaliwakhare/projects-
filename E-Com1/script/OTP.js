@@ -11,6 +11,7 @@ let br = document.createElement("br");
 let btn2 = document.createElement("button");
 btn2.addEventListener("click", getOtp);
 btn2.innerText = "Get Otp";
+window.location.href = "../html/order_place"
 
 main.append(input, btn, br, btn2);
 

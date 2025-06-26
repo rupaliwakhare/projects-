@@ -1,12 +1,30 @@
+body{
+    background-image: url(order_bg.jpeg);
+}
+
+
+
 #order_place{
     width: 30%;
     /* border: 1px solid red; */
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-left: 430px;
-    margin-top: 200px;
+    margin-top: 100px;
+    height: 360px;
+    padding-top: 50px;
 
 }
 #order_place img{
-    width: 100%;
-    height: 200px;
+    width: 60%;
+    height: 250px;
+    margin-left: 80px;
+    /* margin-top: 50px; */
+    background-color: white;
+}
+#order_place h3{
+    text-align: center;
+    color: rgb(27, 24, 18);
+    font-family: 'Times New Roman';
+    font-size: 25px;
+    margin-top: 30px;
 }

@@ -270,27 +270,43 @@ let data = [
 let main = document.getElementById("main");
 display();
 
+
 function display() {
   data.map(function (el) {
     // console.log(el.category);
     let title = document.createElement("h2");
     title.innerText = el.title;
+
     let price = document.createElement("h3");
     price.innerText = el.price;
+
     let image = document.createElement("img");
     image.src = el.image;
+
     let addcartbtn = document.createElement("button");
     addcartbtn.innerText = "Add to Cart";
 
     addcartbtn.addEventListener("click", function () {
-      addToCart(el);
-    });
+    addToCart(el);
 
+  });
+  
     let div = document.createElement("div");
     div.append(image, title, price, addcartbtn);
     main.append(div);
   });
 }
+
+function addToCart(product){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+  localStorage.setItem("cart",JSON.stringify(cart));
+  alert("product added to cart");
+
+
+}
+
+
 let loginuser = JSON.parse(localStorage.getItem("loginuser"));
 let span = document.getElementById("user");
 let cred = document.getElementById("cred");
