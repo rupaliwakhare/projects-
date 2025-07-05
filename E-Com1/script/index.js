@@ -285,6 +285,9 @@ function display() {
 
     let addcartbtn = document.createElement("button");
     addcartbtn.innerText = "Add to Cart";
+    
+    let Description = document.createElement("p");
+    Description.innerText = el.description;
 
     addcartbtn.addEventListener("click", function () {
     addToCart(el);

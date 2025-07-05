@@ -26,7 +26,7 @@ function getOtp() {
 function checkotp() {
   if (input.value == check) {
     alert("correct");
-    window.location.href = "./order.html";
+    window.location.href = "../html/order_place.html";
   } else {
     alert("wrong otp");
   }
