@@ -270,6 +270,7 @@ let data = [
 let main = document.getElementById("main");
 display();
 
+// step 1
 
 function display() {
   data.map(function (el) {
@@ -285,31 +286,30 @@ function display() {
 
     let addcartbtn = document.createElement("button");
     addcartbtn.innerText = "Add to Cart";
-    
+
     let Description = document.createElement("p");
     Description.innerText = el.description;
 
     addcartbtn.addEventListener("click", function () {
-    addToCart(el);
+      addToCart(el);
+    });
 
-  });
-  
     let div = document.createElement("div");
     div.append(image, title, price, addcartbtn);
     main.append(div);
   });
 }
 
-function addToCart(product){
+
+// step 2
+
+function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push(product);
-  localStorage.setItem("cart",JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
   alert("product added to cart");
-
-
 }
-
-
+// step 3
 let loginuser = JSON.parse(localStorage.getItem("loginuser"));
 let span = document.getElementById("user");
 let cred = document.getElementById("cred");
@@ -320,4 +320,16 @@ if (loginuser) {
   username.innerText = loginuser;
 
   span.append(username);
+}
+
+// step 4
+
+
+let isAdmin = true; // Yeh baad mein login data ya localStorage se check hoga
+
+if (isAdmin) {
+  const adminLink = document.getElementById("admin-link");
+  if (adminLink) {
+    adminLink.innerHTML = `<a href="../html/admin.html">Admin Panel</a>`;
+  }
 }

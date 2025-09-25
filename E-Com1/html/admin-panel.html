@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Management</title>
+  <link rel="stylesheet" href="../style/admin-pannel.css">
+ 
+</head>
+<body>
+  <div class="container">
+    <h1>🛍️ Product Management</h1>
+
+    <div class="form-box">
+      <h2>Add New Product</h2>
+      <input type="text" placeholder="Product Name">
+      <input type="text" placeholder="Price">
+      <input type="text" placeholder="Stock">
+      <input type="text" placeholder="Image URL">
+      <button>Add Product</button>
+    </div>
+
+    <div class="table-box">
+      <h2>Product List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Backpack</td>
+            <td>₹799</td>
+            <td>25</td>
+            <td>
+              <button class="action-btn edit-btn">Edit</button>
+              <button class="action-btn delete-btn">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+<script src="../script/admin-panel.js"></script>
+</html>
