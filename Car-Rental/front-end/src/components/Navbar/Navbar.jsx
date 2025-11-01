@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { assets, manuLinks } from "../assets../assets";
+import { assets, manuLinks } from "../../assets/assets.js";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
+
   return (
     <div
-      className={`flex item-center justify-between px-6 md:px-16 lg:px-24 xl::px32 py-4 text-grey-600 border-b border-border-Color relative transition-all  ${
-        location.pathname === "/" && "bg-light"
-      } `}
+      className={`flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 text-grey-600 border-b border-border-color relative transition-all ${
+        location.pathname === "/" ? "bg-light" : ""
+      }`}
     >
       <Link to="/">
-        <img src={assets.logo} alt="" className="h-8" />
+        <img src={assets.logo} alt="Logo" className="h-8" />
       </Link>
+
       <div
-        className={`max-sm:fixed max-sm:h-screen max-sm:w-full max-sm:top-16 max-sm:border-t border-border-color right-0 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 max-sm:p-4 transition-app duration-300 z-50 
-          ${location.pathname === "/" ? "bg-light" : "bg-white"} ${
-          open ? "max-sm:translate-x-0" : "max-sm:translate-x-full"
-        }`}
+        className={`max-sm:fixed max-sm:h-screen max-sm:w-full max-sm:top-16 max-sm:border-t border-border-color right-0 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 max-sm:p-4 transition-transform duration-300 z-50 ${
+          location.pathname === "/" ? "bg-light" : "bg-white"
+        } ${open ? "max-sm:translate-x-0" : "max-sm:translate-x-full"}`}
       >
         {manuLinks.map((link, index) => (
           <Link key={index} to={link.path}>
