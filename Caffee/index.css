@@ -1,63 +1,101 @@
-/* importing google fonts  */
+/* Importing Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Miniver&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+/* Reset and global styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppines",sans-serif;   
+    font-family: "Poppins", sans-serif;
 }
-:root{
-    /* colors */
-    --white-color:#fff;
-    --dark-color:#252525;
-    --primary-color:#3b141c;
-    --secondary-color:#f3961c;
-    --light-pink-color:#faf4f5;
-    --medium-gray-coloor:#ccc;
 
-    /* font size */
-    --font-size-s:0.9rem;
-    --font-size-n:1rem;
-    --font-size-m:1.12rem;
-    --font-size-l:1.5rem;
-    --font-size-xl:2rem;
-    --font-size-xxl:2.3rem;
-    
+ul {
+    list-style: none;
+}
 
-    /* font weight */
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Root variables */
+:root {
+    /* Colors */
+    --white-color: #fff;
+    --dark-color: #252525;
+    --primary-color: #3b141c;
+    --secondary-color: #f3961c;
+    --light-pink-color: #faf4f5;
+    --medium-gray-color: #ccc;
+
+    /* Font sizes */
+    --font-size-s: 0.9rem;
+    --font-size-n: 1rem;
+    --font-size-m: 1.12rem;
+    --font-size-l: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.3rem;
+
+    /* Font weights */
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
 
-    /* border radius */
-    --border-radius-s:8px;
-    --border-radius-m:30px;
-    --border-radius-circle:50%;
+    /* Border radius */
+    --border-radius-s: 8px;
+    --border-radius-m: 30px;
+    --border-radius-circle: 50%;
 
     /* Site max-width */
-    --site-max-width:1300px;
+    --site-max-width: 1300px;
+}
 
-    
-
-
-}
-ul{
-    list-style: none;
-}
-a{
-    text-decoration: none;
-}
-button{
-    cursor: pointer;
-}
-header{
+/* Header styles */
+header {
     background: var(--primary-color);
+    z-index: 1000;
 }
-.navbar .nav-logo .logo-text{
-    color: var(--white-color);
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
 }
-.navbar .nav-menu .nav-link{
+
+.navbar .nav-logo .logo-text {
     color: var(--white-color);
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-bold);
+}
+
+.navbar .nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar .nav-menu .nav-link {
+    color: var(--white-color);
+    font-size: var(--font-size-n);
+    font-weight: var(--font-weight-medium);
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-menu .nav-link:hover {
+    color: var(--secondary-color);
+}
+.navbar>button{
+    padding: 10px 20px;
+    background: orange;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+
 }
